@@ -14,7 +14,7 @@ function refresh() {
         var $quoteImage = $('#celebrityImage');
         $quoteImage.css('background-image', 'url('+imageSrc+')');
         $.get('/gen_quote', function (quote) {
-            var text = '"' + quote + '" - ' + extractName(imageSrc);
+            var text = '"' + quote.trim() + '" - ' + extractName(imageSrc);
             $quoteImage.find('.overlayText').text(text);
         })
     });
