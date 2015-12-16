@@ -6,7 +6,13 @@ import os
 import requests
 from bs4 import BeautifulSoup
 from collections import defaultdict
-from .common import make_syms
+
+
+def make_syms(prefix_len):
+    syms_start = ['__start{}__'.format(i) for i in range(prefix_len)]
+    syms_end = ['__end{}__'.format(i) for i in range(prefix_len)]
+    return syms_start, syms_end
+
 
 OUT_DIR = 'out'
 

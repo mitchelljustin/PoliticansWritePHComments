@@ -4,8 +4,9 @@
 
 function extractName(imageSrc) {
     var pathParts = imageSrc.split('/');
-
-    return pathParts[pathParts.length - 1].split('.')[0].replace(/_/g, ' ');
+    var filename = pathParts[pathParts.length - 1];
+    var celebrityName = filename.split('.')[0];
+    return celebrityName.replace(/_/g, ' ');
 }
 
 function refresh() {
@@ -21,5 +22,6 @@ function refresh() {
 
 $(document).ready(function () {
     $('#refreshButton').click(refresh);
+    $(document).keypress(refresh);
     refresh();
 });

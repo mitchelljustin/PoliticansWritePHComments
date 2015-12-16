@@ -1,4 +1,5 @@
 #imageContainer {
+    margin: 0 auto;
     margin-bottom: 15px;
 }
 
@@ -14,6 +15,5 @@
     2px -2px 0 #000,
     -2px 2px 0 #000,
     2px 2px 0 #000;
-    margin-left: 20px;
-    margin-right: 20px;
+    text-align: center;
 }
