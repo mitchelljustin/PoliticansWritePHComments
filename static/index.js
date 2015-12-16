@@ -5,7 +5,7 @@
 function extractName(imageSrc) {
     var pathParts = imageSrc.split('/');
 
-    return pathParts[pathParts.length - 1].split('.')[0].replace('_', ' ');
+    return pathParts[pathParts.length - 1].split('.')[0].replace(/_/g, ' ');
 }
 
 function refresh() {

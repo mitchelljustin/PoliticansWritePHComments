@@ -1,5 +1,8 @@
+#imageContainer {
+    margin-bottom: 15px;
+}
+
 #celebrityImage {
-    margin-top: 15px;
     width: 800px;
     height: 500px;
     background-size: cover;
