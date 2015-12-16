@@ -1,5 +1,7 @@
 import json
 
+import os
+import random
 from core.generate_comment import generate_pornhub_comment
 from flask import send_file
 from . import app
@@ -24,3 +26,12 @@ def gen_quote():
         blacklist=comments_json['comments'],
     )
     return quote
+
+
+IMAGES_DIR = 'static/images'
+
+
+@app.route('/image')
+def get_image():
+    choices = os.listdir(IMAGES_DIR)
+    return os.path.join(IMAGES_DIR, random.choice(choices))

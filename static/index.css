@@ -1,0 +1,16 @@
+#celebrityImage {
+    margin-top: 15px;
+    width: 800px;
+    height: 500px;
+    background-size: cover;
+}
+
+.overlayText {
+    color: white;
+    text-shadow: -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;
+    margin-left: 20px;
+    margin-right: 20px;
+}
