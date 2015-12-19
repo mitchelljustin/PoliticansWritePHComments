@@ -3,7 +3,7 @@ import json
 import os
 import random
 from core.generate_comment import generate_pornhub_comment
-from flask import send_file
+from flask import send_file, jsonify
 from . import app
 
 
@@ -14,9 +14,13 @@ def index():
 
 comments_json = None
 
+IMAGES_DIR = 'static/images'
 
-@app.route('/gen_quote')
-def gen_quote():
+
+@app.route('/generate')
+def generate():
+    image_choices = os.listdir(IMAGES_DIR)
+    image_url = os.path.join(IMAGES_DIR, random.choice(image_choices))
     global comments_json
     if not comments_json:
         comments_json = json.load(open('static/comments.json'))
@@ -25,13 +29,7 @@ def gen_quote():
         prefix_len=comments_json['prefix_len'],
         blacklist=comments_json['comments'],
     )
-    return quote
-
-
-IMAGES_DIR = 'static/images'
-
-
-@app.route('/image')
-def get_image():
-    choices = os.listdir(IMAGES_DIR)
-    return os.path.join(IMAGES_DIR, random.choice(choices))
+    return jsonify(
+        image=image_url,
+        quote=quote,
+    )
