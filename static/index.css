@@ -1,3 +1,6 @@
+.container {
+    text-align: center;
+}
 #imageContainer {
     margin: 0 auto;
     margin-bottom: 15px;
@@ -7,6 +10,7 @@
     width: 800px;
     height: 500px;
     background-size: cover;
+    margin: 0 auto;
 }
 
 .overlayText {

@@ -30,8 +30,8 @@
         $('#refreshButton').click(refresh);
         $(document).keypress(function (e) {
             if (e.which == 98) { // back
-                if (quotes.length > 0) {
-                    var quote = quotes.splice(quotes.length - 1, 1)[0];
+                if (quotes.length >= 2) {
+                    var quote = quotes.splice(quotes.length - 2, 1)[0];
                     setQuoteWithData(quote);
                 }
             } else if (e.which == 32) { // space
