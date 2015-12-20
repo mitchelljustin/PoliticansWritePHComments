@@ -1,9 +1,9 @@
 .container {
     text-align: center;
 }
+
 #imageContainer {
-    margin: 0 auto;
-    margin-bottom: 15px;
+    margin: 0 auto 15px;
 }
 
 #celebrityImage {
