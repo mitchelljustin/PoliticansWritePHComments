@@ -8,9 +8,6 @@ RUN pip install -r requirements.txt
 
 ADD . /app
 
-ENV PORT=8000
 EXPOSE 8000
 
-ENV DEBUG=false 
-
-CMD ["python", "run_server.py"]
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "app:app", "--log-file=-"]
