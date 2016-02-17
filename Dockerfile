@@ -8,6 +8,7 @@ RUN pip install -r requirements.txt
 
 ADD . /app
 
+ENV DEBUG=false
 EXPOSE 8001
 
 CMD ["python", "run_server.py"]
