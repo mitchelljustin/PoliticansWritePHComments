@@ -10,4 +10,4 @@ ADD . /app
 
 EXPOSE 8001
 
-CMD ["gunicorn", "-b", "0.0.0.0:8001", "app:app", "--log-file=-"]
+CMD ["python", "run_server.py"]
