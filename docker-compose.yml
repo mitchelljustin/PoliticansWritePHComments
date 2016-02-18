@@ -1,4 +1,6 @@
 web:
   build: .
+  environment:
+    DEBUG: false
   ports:
    - "8001:8001"
