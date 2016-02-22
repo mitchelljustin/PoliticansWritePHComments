@@ -4,3 +4,12 @@ web:
     DEBUG: 'false'
   ports:
    - "8001:8001"
+  links:
+   - webdb
+webdb:
+  image: mongo
+seed_webdb:
+  build: .
+  command: ./seed.py seed_comments.txt
+  links:
+   - webdb
