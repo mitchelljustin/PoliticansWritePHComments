@@ -17,8 +17,10 @@ def run_seed(
     with open(comments_filename) as comments_file:
         if limit != -1:
             comments_file = islice(comments_file, int(limit))
-        num_comments, num_markov_entries = seed_db_with_comments(comments_file)
-        logging.info('Seeded {} comments and {} markov entries'.format(num_comments, num_markov_entries))
+        for num_comments, num_markov_entries in seed_db_with_comments(comments_file):
+            if not num_comments % 25 == 0:
+                continue
+            logging.info('Seeded {} comments and {} markov entries'.format(num_comments, num_markov_entries))
 
 
 if __name__ == '__main__':

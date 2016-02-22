@@ -26,4 +26,5 @@ def seed_db_with_comments(lines_iter):
                 entry['suffixes'].append(suffix)
             markov_dict.save(entry)
             num_markov_entries += 1
+        yield num_comments, num_markov_entries
     return num_comments, num_markov_entries
