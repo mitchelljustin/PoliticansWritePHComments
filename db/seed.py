@@ -16,10 +16,14 @@ def seed_db_with_comments(lines_iter):
         for i in range(len(words) - PREFIX_LEN):
             prefix = ' '.join(words[i:i + PREFIX_LEN])
             suffix = words[i + PREFIX_LEN]
-            markov_dict.find_one_and_update(
-                {'prefix': prefix},
-                {'$push': {'suffixes': suffix}},
-                upsert=True,
-            )
+            entry = markov_dict.find_one({'prefix': prefix})
+            if entry is None:
+                entry = {
+                    'prefix': prefix,
+                    'suffixes': [suffix]
+                }
+            else:
+                entry['suffixes'].append(suffix)
+            markov_dict.save(entry)
             num_markov_entries += 1
     return num_comments, num_markov_entries

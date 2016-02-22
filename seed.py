@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import logging
+from itertools import islice
 
 import click
 from db.seed import seed_db_with_comments
@@ -8,10 +9,14 @@ from db.seed import seed_db_with_comments
 
 @click.command()
 @click.argument('comments_filename')
+@click.option('-l', '--limit', default=-1)
 def run_seed(
-    comments_filename
+    comments_filename,
+    limit,
 ):
     with open(comments_filename) as comments_file:
+        if limit != -1:
+            comments_file = islice(comments_file, int(limit))
         num_comments, num_markov_entries = seed_db_with_comments(comments_file)
         logging.info('Seeded {} comments and {} markov entries'.format(num_comments, num_markov_entries))
 
