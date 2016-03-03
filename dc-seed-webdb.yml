@@ -1,0 +1,7 @@
+webdb:
+  image: mongo
+seed_webdb:
+  build: .
+  command: ./seed.py seed_comments.txt
+  links:
+   - webdb
